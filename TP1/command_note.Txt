@@ -1,0 +1,8 @@
+Compile commande:
+gcc nomFichier.c -o nomFichier
+Pour tp1:
+gcc Exercice1.c -o Exercice1
+
+Pour éxécuter:
+./nomFichier
+./Exercice1
