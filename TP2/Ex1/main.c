@@ -2,16 +2,6 @@
 #include <assert.h>
 #include <stdlib.h>
 
-/*
-int** triangle(int n){ //génère un triangle de tableaux vide en utilisant les pointeur, tab[i][j] renvoie la ième ligne jème colonne
-    int* tab[n];
-    for (int i=0; i<n; i++)
-    {
-        tab[i] = malloc(sizeof(int)*(i+1));
-    }
-    return(tab);
-}
-*/
 
 int print_pascal(int n)
 {
