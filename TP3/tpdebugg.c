@@ -1,18 +1,33 @@
 #include <stdio.h>
 #include "tpDebug.h"
 #include <stdlib.h>
+#include <time.h>
 
 int main(){
     
     premiere_fonction();
+    printf("==================================================== \n");
     juste_une_boucle();
+    printf("==================================================== \n");
     juste_une_somme(3.5,4.2);
+    printf("==================================================== \n");
     deccalage(6);
+    printf("==================================================== \n");
     double rand = 3.1416;
     double* rand_point = &rand;
     une_autre_somme(rand_point,7,2.6);
-    printf("====================================================");
+    printf("==================================================== \n");
     jeu_aleatoire(9);
+    printf("==================================================== \n");
+    //char Chaine[20+1]={ 'B', 'o', 'n', 'j', 'o', 'u', 'r', '\0' };
+    //char lettre[1+1]={ 'K', '\0'};
+    //char* adresse = &Chaine;
+    //change_juste_une_lettre(adresse, 3, lettre);
+    //printf("==================================================== \n");
+    //init_mat();
+    //soustration_de_matrice(result,mat1,mat2,1);
+
+
 }
 
 
@@ -107,16 +122,14 @@ void une_autre_somme(double* LeSuperResultat, double unNomDeVariable, double unA
     printf("\n");
 }
 
-
 /*
 void change_juste_une_lettre(char* mot, int position, char lettre){
     printf("L'ancien mot est : %s \n", mot);
     mot[position] = lettre;
     printf("Le nouveau mot est : %s \n", mot);
 }
-*/
 
-/*
+
 void soustration_de_matrice(double** result, double** mat1, double** mat2, int n){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; i++){
@@ -139,19 +152,17 @@ void affiche_mat(){
     printf("%lf", result);
 }
 
-
 */
-
 void jeu_aleatoire(int max){
     //https://koor.fr/C/cstdlib/rand.wp
-   
-   
+    
+    srand( time( NULL ) );
     int searchedValue = rand() % max;       // % => Reste de la division entière
     int editedValue;
     int score = 0;
     printf( "MegaGame V1.0 - Valeur secrete \n");
-    int State = 1;
-    while(State == 1)
+    //int State = 1;
+    while(1)//State == 1)
     {
         printf( "Veuillez saisir un entier (entre 0 et %d) : ", max );
         fflush( stdout );
@@ -160,8 +171,8 @@ void jeu_aleatoire(int max){
 
         if ( editedValue == searchedValue ) {
             printf( "Felicitation : trouve en %d coups !\n", score );
-            //break;      // intérrompre la boucle 
-            State = 0;
+            break;      // intérrompre la boucle 
+            //State = 0;
         }
         if ( editedValue < searchedValue ) {
             printf( "La valeur a trouver est plus grande.\n" );
