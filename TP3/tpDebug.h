@@ -27,3 +27,5 @@ void affiche_mat();
 void soustration_de_matrice(double result[][TAILLE_MAT], double mat1[][TAILLE_MAT], double mat2[][TAILLE_MAT], int n);
 
 int fonction_recursive(int n);
+
+void jeu_aleatoire(int max); //ouhhhhhh !

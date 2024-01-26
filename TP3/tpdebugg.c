@@ -1,11 +1,21 @@
+#include <stdio.h>
+#include "tpDebug.h"
+#include <stdlib.h>
 
-
-int maine(){
+int main(){
     
-    
-    // change_juste_une_lettre("Classe", 6, 'i');
-    
+    premiere_fonction();
+    juste_une_boucle();
+    juste_une_somme(3.5,4.2);
+    deccalage(6);
+    double rand = 3.1416;
+    double* rand_point = &rand;
+    une_autre_somme(rand_point,7,2.6);
+    printf("====================================================");
+    jeu_aleatoire(9);
 }
+
+
 
 
 /*void une_somme_pas_si_simple(int n)
@@ -24,22 +34,18 @@ int maine(){
 
 }*/
 
-/*
-void PremiereFonction()
+void premiere_fonction()
 {
-    printf("Hello World !")
+    printf("Hello World ! \n");
 }
 
-*/
-
-/*
 void juste_une_boucle(){
     int tab[] = {1, 2, 3, 4};
     int sum = 0;
 
-    for(int i = 1; i =< 4;i++)
+    for(int i = 0; i <= 3;i++)
     {
-        int sum = sum + tab[i];
+        sum = sum + tab[i];
     
     
     // partie à ne pas modifier
@@ -48,38 +54,59 @@ void juste_une_boucle(){
         printf("la somme n'est pas bonne, sum=  %d \n", sum);
     }
     // fin partie à ne pas modifier
+    if(sum == 10)
+    {
+        printf("la somme est bonne,super ! sum=  %d \n", sum);
+    }
 }
-*/
+}
 
-/*
-void juste_une_somme(int a, int b){
-    int retour = a + b;
+
+double juste_une_somme(double a, double b){
+    double retour = a + b;
+    printf("la somme vaut  %f \n", retour);
+    return(retour);
 }
-*/
+
+
+
+void deccalage(int entree){
+    int offset;
+
+    if(entree >10){
+        offset = 1;
+        //printf("presence d'un offset de 1 \n);
+    }else{
+        offset = 2;
+        //printf("presence d'un offset de 2 \n);
+    }
+    printf("le resultat est %d + %d = %d", entree, offset, entree + offset); // ne pas modifier cette ligne
+    printf("\n");
+}
 
 /*
 void deccalage(int entree){
     int offset;
 
     if(entree >10){
-        int offset = 1:
-        //printf("presence d'un offset de 1 \n);
-    }else
-        int offset = 2;
-        //printf("presence d'un offset de 2 \n);
-
-    printf("le resultat est %d + %d = %d", entree, offset, entree + offset); // ne pas modifier cette ligne
+        printf("presence d'un offset de 1 \n");
+        int offset = 1;
+    }else{
+        int offset =2;
+        printf("presence d'un offset de 2 \n");
+    }
+    printf("le resultat est %d", entree + offset);
 }
 */
 
 
-
-
-/*
-void une_autre_somme(double LeSuperResultat, double unNomDeVariable, double unAutreNomDeVariable){
-    LeSuperResultat = unNomDevariable + unAutreNomDeVariable;
+void une_autre_somme(double* LeSuperResultat, double unNomDeVariable, double unAutreNomDeVariable){
+    *LeSuperResultat = unNomDeVariable + unAutreNomDeVariable;
+    //*pointeur = LeSuperResultat;
+    printf(" %lf",*LeSuperResultat);
+    printf("\n");
 }
-*/
+
 
 /*
 void change_juste_une_lettre(char* mot, int position, char lettre){
@@ -114,23 +141,7 @@ void affiche_mat(){
 
 
 */
-/*
-void deccalage(int entree){
-    int offset;
 
-    if(entree >10){
-        printf("presence d'un offset de 1 \n");
-        int offset = 1:
-    }else{
-        int offset =2;
-        printf("presence d'un offset de 2 \n");
-    }
-    printf("le resultat est %d", entree + offset);
-}
-
-*/
-
-/*
 void jeu_aleatoire(int max){
     //https://koor.fr/C/cstdlib/rand.wp
    
@@ -139,8 +150,8 @@ void jeu_aleatoire(int max){
     int editedValue;
     int score = 0;
     printf( "MegaGame V1.0 - Valeur secrete \n");
-
-    while(1);
+    int State = 1;
+    while(State == 1)
     {
         printf( "Veuillez saisir un entier (entre 0 et %d) : ", max );
         fflush( stdout );
@@ -149,7 +160,8 @@ void jeu_aleatoire(int max){
 
         if ( editedValue == searchedValue ) {
             printf( "Felicitation : trouve en %d coups !\n", score );
-            break;      // intérrompre la boucle 
+            //break;      // intérrompre la boucle 
+            State = 0;
         }
         if ( editedValue < searchedValue ) {
             printf( "La valeur a trouver est plus grande.\n" );
@@ -159,7 +171,6 @@ void jeu_aleatoire(int max){
     }    
 }
 
-*/
 
 
 /*
