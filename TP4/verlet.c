@@ -9,7 +9,7 @@ typedef struct Point{
 }Point;
 
 typedef struct Liste{
-    double* Tableau;
+    Point* Tableau;
     int Taille;
 }Liste;
 
@@ -185,12 +185,13 @@ Liste ListPythonToC (PyObject *List)
 {
     Liste lst;
     lst.Taille = PyList_GET_SIZE(List);
-    lst.Tableau = malloc(lst.Taille*sizeof(double));
-    double temp1;
+    lst.Tableau = malloc(lst.Taille*sizeof(Point));
+    PyObject *temp1;
     for (int i=0;i < lst.Taille; i++)
     {
-        temp1 = PyFloat_AsDouble(PyList_GetItem(List, i ));
-        lst.Tableau[i] = temp1;
+        temp1 = (PyList_GetItem(List, i ));
+        Point pts = Decodage(temp1);
+        lst.Tableau[i] = pts;
     }
     return(lst);
 }
@@ -201,8 +202,8 @@ PyObject* ListCToPython (Liste lst)
     PyObject *Affectation;
     for (int i = 0; i< lst.Taille; i++)
     {
-        Affectation = PyFloat_FromDouble(lst.Tableau[i]);
-        PyList_SetItem(result,i, Affectation);
+        PyObject *Point_Py = Recodage(lst.Tableau[i]);
+        PyList_SetItem(result,i, Point_Py);
     }
     return(result);
 
@@ -212,7 +213,7 @@ void PrintListMalloc(Liste lst)
 {
     for (int i = 0; i< lst.Taille; i++)
     {
-        printf("%f",lst.Tableau[i]);
+        PrintPoint(lst.Tableau[i]);
     }
     printf("\n");
 }
@@ -229,7 +230,7 @@ PyObject* Test_Listes(PyObject* self, PyObject* args)
 
     Liste lst = ListPythonToC(Liste_Py);
 
-    PrintListMalloc(lst);
+    //PrintListMalloc(lst);
 
     PyObject *result;
 

@@ -20,8 +20,12 @@ class Point():
 
 p = Point(0.65,3.45,0.0,0.0,0.0,0.0,255,255,0,0)
 
+p1 = Point(0.65,3.45,0.0,0.0,0.0,0.0,255,255,0,0)
+p2 = Point(0.65,10.45,0.0,6.0,0.0,0.0,100,100,0,0)
+p3 = Point(0,0,0.0,0.0,0.0,10.0,255,25,0,0)
+
 test = verlet.Test_Verlet(p)
 print(test)
 
-tab = verlet.Test_Listes([1,2,3,4.21,5.87])
+tab = verlet.Test_Listes([p1,p2,p3])
 print(tab)
